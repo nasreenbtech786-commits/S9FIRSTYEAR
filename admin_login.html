@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login | Work-Study Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function loginAdmin(event) {
+      event.preventDefault(); 
+      const password = document.getElementById("password").value;
+
+      // ✅ Set your desired password here
+      const correctPassword = "admin123";
+
+      if (password === correctPassword) {
+        alert("Login successful!");
+        window.location.href = "admin.html"; // Redirect to admin page
+      } else {
+        alert("Incorrect password. Try again!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Admin Login</h1>
+  </header>
+
+  <section>
+    <h2>Enter Admin Credentials</h2>
+    <form onsubmit="loginAdmin(event)">
+      <label>Admin ID:</label>
+      <input type="text" required>
+
+      <label>Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </section>
+  <script>
+  function loginAdmin(event) {
+    event.preventDefault(); 
+    const password = document.getElementById("password").value;
+    const correctPassword = "admin123";
+
+    if (password === correctPassword) {
+      alert("Login successful!");
+      window.location.href = "admin.html";  
+    } else {
+      alert("Incorrect password. Try again!");
+    }
+  }
+</script>
+</body>
+</html>

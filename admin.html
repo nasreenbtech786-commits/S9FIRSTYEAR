@@ -1,0 +1,137 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel | Work-Study Portal</title>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #4a4aff;
+      color: white;
+      padding: 20px 0;
+      margin-bottom: 30px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: white;
+      width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form label {
+      display: block;
+      font-size: 16px;
+      text-align: left;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    button {
+      background: #4a4aff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #3030ff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <nav>
+      <a href="admin.html">Add Student</a>
+      <a href="student.html">Student</a>
+      <a href="View student.html">View Students</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Add Student Details</h2>
+
+    <form onsubmit="saveStudent(event)">
+      <label>Student Name:</label>
+      <input id="name" type="text" required>
+
+      <label>Register Number:</label>
+      <input id="reg" type="text" required>
+
+      <label>Department:</label>
+      <input id="dept" type="text" required>
+
+      <button type="submit">Add Student</button>
+    </form>
+  </section>
+
+  <script>
+    function saveStudent(event) {
+      event.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let reg = document.getElementById("reg").value;
+      let dept = document.getElementById("dept").value;
+
+      let student = { name, reg, dept };
+
+      let students = JSON.parse(localStorage.getItem("students")) || [];
+      students.push(student);
+
+      localStorage.setItem("students", JSON.stringify(students));
+
+      alert("Student Added Successfully!");
+
+      document.querySelector("form").reset();
+    }
+  </script>
+
+</body>
+</html>   
+ 

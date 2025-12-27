@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" cellpadding="10" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reg No</th>
+      <th>Dept</th>
+    </tr>
+  </thead>
+  <tbody id="data"></tbody>
+</table>
+<div style="text-align: center;">
+      <a href="index.html"><button>GO BACK</button></a>
+    </div>
+
+
+<script>
+function loadStudents() {
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+  let table = document.getElementById("data");
+
+  students.forEach(s => {
+    table.innerHTML += `
+      <tr>
+        <td>${s.name}</td>
+        <td>${s.reg}</td>
+        <td>${s.dept}</td>
+      </tr>
+    `;
+  });
+}
+
+function loadStudents() {
+
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  let table = document.getElementById("data");
+
+  students.forEach(s => {
+    table.innerHTML += `
+      <tr>
+        <td>${s.name}</td>
+        <td>${s.reg}</td>
+        <td>${s.dept}</td>
+      </tr>
+    `;
+  });
+}
+
+loadStudents();
+</script>
+
+</body>
+</html>
+  
+
+ 
